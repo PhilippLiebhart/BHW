@@ -11,3 +11,11 @@
 
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
+
+.header-image {
+  background-image: url("./images/BHW_head.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 15%;
+}
