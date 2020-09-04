@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+// Import a Google Font
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+
+// COLORS
+
+$green: #1b874f;
+$link: #252525;
+$gray: #414141;
+$beige-light: #d0d1cd;
+$beige-lighter: #ffffed;
+
+// TEXT COLORS
+$text: #3c3c3c;
+$text-strong: #484848;
+$title-color: #656565;
+$title-strong-color: #656565;
+$subtitle-color: #656565;
+$subtitle-strong-color: #656565;
+
+// DIVERS
+$family-sans-serif: "Roboto", sans-serif;
+$grey-dark: $gray;
+$grey-light: $beige-light;
+$primary: $green;
+$link: $link;
+
+$widescreen-enabled: true;
+$fullhd-enabled: true;
+
+// Component variables
+$body-background-color: $beige-lighter;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+// NAVIGATION
+$navbar-item-color: $gray;
+$navbar-background-color: $beige-light;
+$navbar-height: 4rem;
+$navbar-item-img-max-height: 4rem;
+
+// Import only what you need from Bulma
+// @import '../node_modules/bulma/sass/utilities/_all.sass';
+// @import '../node_modules/bulma/sass/base/_all.sass';
+// @import '../node_modules/bulma/sass/elements/button.sass';
+// @import '../node_modules/bulma/sass/elements/container.sass';
+// @import '../node_modules/bulma/sass/elements/form.sass';
+// @import '../node_modules/bulma/sass/elements/title.sass';
+// @import '../node_modules/bulma/sass/components/navbar.sass';
+// @import '../node_modules/bulma/sass/layout/hero.sass';
+// @import '../node_modules/bulma/sass/layout/section.sass';
+
+@import "../node_modules/bulma/sass/utilities/_all";
+@import "../node_modules/bulma/sass/base/_all";
+@import "../node_modules/bulma/sass/elements/_all";
+@import "../node_modules/bulma/sass/form/_all";
+@import "../node_modules/bulma/sass/components/_all";
+@import "../node_modules/bulma/sass/grid/_all";
+@import "../node_modules/bulma/sass/helpers/_all";
+@import "../node_modules/bulma/sass/layout/_all";
