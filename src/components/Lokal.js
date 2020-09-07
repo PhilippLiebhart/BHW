@@ -3,7 +3,7 @@ import React from "react";
 const Lokal = (props) => {
   return (
     <div>
-      <section className="section mt-6">
+      <section className="section">
         <div className="container">
           <div className="columns is-multiline is-vcentered is-mobile is-desktop is-tablet">
             <div className="column is-full-mobile is-half-desktop is-half-tablet is-one-quarter-widescreen is-one-quarter-fullhd">
