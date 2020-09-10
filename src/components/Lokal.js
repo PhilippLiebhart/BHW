@@ -1,5 +1,9 @@
 import React from "react";
 
+import innen1 from "../images/fotos/Lokal_Innen_1.jpg";
+import aussen1 from "../images/fotos/Lokal_aussen_1.jpg";
+import aussen2 from "../images/fotos/Lokal_aussen_2.jpg";
+
 const Lokal = (props) => {
   return (
     <div>
@@ -20,10 +24,7 @@ const Lokal = (props) => {
             <div className="column is-full-mobile is-half-desktop is-half-tablet is-one-quarter-widescreen is-one-quarter-fullhd">
               <figure className="image is-fullwidth">
                 {" "}
-                <img
-                  src="http://www.bratwurstherzl.de/images/raum.jpg"
-                  alt="Bratwurscht Herzl Logo"
-                />
+                <img src={innen1} alt="Bratwurscht Herzl Logo" />
               </figure>
             </div>
             <div className="column is-full-mobile is-half-desktop is-half-tablet is-one-quarter-widescreen is-one-quarter-fullhd">
@@ -52,11 +53,11 @@ const Lokal = (props) => {
               </h5>
             </div>
             <div className="column is-full-mobile is-half-desktop is-half-tablet is-one-quarter-widescreen is-one-quarter-fullhd">
+              <figure className="image is-fullwidth mb-5">
+                <img src={aussen2} alt="Bratwurscht Herzl Logo" />
+              </figure>
               <figure className="image is-fullwidth">
-                <img
-                  src="http://www.bratwurstherzl.de/images/aussen.jpg"
-                  alt="Bratwurscht Herzl Logo"
-                />
+                <img src={aussen1} alt="Bratwurscht Herzl Logo" />
               </figure>
             </div>
           </div>

@@ -11,19 +11,15 @@ const Speisekarte = (props) => {
     client
       .getEntries()
       .then((response) => {
-        console.log("RESPONSE", response);
-        console.log("RESPONSE", response.items[0].sys.contentType.sys.id);
         setSpeisen(response.items);
       })
       .catch(console.error);
   }, []);
-  console.log("SPEISEN STATE", speisen);
 
   const wochenkarte = speisen
     .filter((type) => type.sys.contentType.sys.id === "tagesgericht")
     .map((speise, index) => {
       const richText = speise.fields.beschreibung;
-      console.log("RIIIIICH:::", richText);
       const richedText = documentToReactComponents(richText);
       return (
         <Speise
@@ -60,13 +56,17 @@ const Speisekarte = (props) => {
       </p>{" "}
       <p className="subtitle is-6"> Beilagenänderungen möglich.</p>
       <h6 className="subtitle">Alle Preise in Euro</h6>
-      <span className="tag is-success is-small  p-0 m-0">
-        Unsere Tagesgerichte für € 7,80
-      </span>
+      <div className="container has-background-success-dark has-text-white px-3 py-3">
+        <p className="is-size-4">Unsere Tagesgerichte für € 7,80</p>
+      </div>
       {wochenkarte}
-      <span className="tag is-success is-small  p-0 m-0">
-        Münchner Originale & Bayrische Klassiker
-      </span>
+      <div className="container has-background-success-dark has-text-white px-3 py-3">
+        <p className="is-size-4">Münchner Originale & Bayrische Klassiker</p>
+      </div>
+      {speisekarte}
+      <div className="container has-background-success-dark has-text-white px-3 py-3">
+        <p className="is-size-4">Original Nürnberger Rostbratwürstchen</p>
+      </div>
       {speisekarte}
     </div>
   );

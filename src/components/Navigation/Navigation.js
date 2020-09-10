@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Navigation.css";
 
 import { slide as Menu } from "react-burger-menu";
-import burgerImg from "../../images/BHW_burger_logo.png";
 import logo from "../../images/BHW_Logo_schrift.png";
 import NavigationItems from "./NavigationItems";
 

@@ -53,6 +53,15 @@ const NavigationItems = (props) => {
         exact
         activeClassName="activeLink"
         className="navbar-item"
+        to="/gutschein"
+        onClick={props.clicked}
+      >
+        <h1 className="title is-6">Gutschein</h1>
+      </NavLink>
+      <NavLink
+        exact
+        activeClassName="activeLink"
+        className="navbar-item"
         to="/impressum"
         onClick={props.clicked}
       >

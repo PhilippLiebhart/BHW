@@ -1,7 +1,6 @@
 import React from "react";
 
 import logo from "../images/BHW_Logo_big.png";
-import aussen from "../images/bhw_aussen.jpg";
 
 const Home = (props) => {
   return (
@@ -27,7 +26,10 @@ const Home = (props) => {
             </div>
             <div className="column is-full-mobile is-full-desktop is-full-tablet is-full-widescreen is-full-fullhd">
               <figure className="image is-fullwidth">
-                <img src={aussen} alt="Bratwurscht Herzl Logo" />
+                <img
+                  src={require("../images/fotos/Lokal_aussen_3.jpg")}
+                  alt="Bratwurscht Herzl Logo"
+                />
               </figure>
             </div>
           </div>

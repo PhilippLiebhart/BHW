@@ -1,6 +1,17 @@
 import React from "react";
+import GoogleMapReact from "google-map-react";
+import Marker from "../Kontakt/Marker";
+// export const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 const Kontakt = (props) => {
+  const defaultProps = {
+    center: {
+      lat: 48.1354323,
+      lng: 11.5752921,
+    },
+    zoom: 17,
+  };
+
   return (
     <div>
       <div className="section mb-0 pb-0">
@@ -51,6 +62,24 @@ const Kontakt = (props) => {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="section is-full-mobile is-half-desktop is-half-tablet is-half-widescreen is-half-fullhd">
+        <div className="container is-full-mobile is-half-desktop is-half-tablet is-half-widescreen is-half-fullhd">
+          <div style={{ height: "50vh", width: "100%" }}>
+            <GoogleMapReact
+              yesIWantToUseGoogleMapApiInternals
+              bootstrapURLKeys={{ key: process.env.REACT_APP_API_KEY }}
+              defaultCenter={defaultProps.center}
+              defaultZoom={defaultProps.zoom}
+            >
+              <Marker
+                lat="48.1354323"
+                lng="11.5752921"
+                locName="Wir sind hier!"
+              />
+            </GoogleMapReact>
           </div>
         </div>
       </div>

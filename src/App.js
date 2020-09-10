@@ -1,5 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
+
+import Moment from "react-moment";
+import "moment/locale/de";
+
+import { client } from "../src/client";
 
 import "./App.scss";
 import "./App.css";
@@ -9,16 +14,59 @@ import Home from "./components/Home";
 import Lokal from "./components/Lokal";
 import Speisekarte from "./components/Speisekarte/Speisekarte";
 import Getraenke from "./components/Getraenke";
-import Kontakt from "./components/Kontakt";
+import Kontakt from "./components/Kontakt/Kontakt";
+import Gutschein from "./components/Gutschein/Gutschein";
 import Impressum from "./components/Impressum";
 
 import ornamentRow from "../src/images/Ornament_row.png";
 import ornamentBottom from "../src/images/Ornament_row_bottom.png";
 
 function App() {
+  const date = new Date();
+
+  const getDate = (
+    <Moment format="dddd" lang="de" locale="de">
+      {date}
+    </Moment>
+  );
+  console.log("GET DATE:", getDate);
+  // console.log("AKTUELLES DATE", Moment.date());
+
+  const [tagesgericht, setTagesgericht] = useState([]);
+
+  useEffect(() => {
+    client
+      .getEntries()
+      .then((response) => {
+        const res = response.items;
+        const gerichtWochentag = res
+          .filter((type) => type.fields.wochentag === "Mittwoch")
+          .map((ger) => {
+            return ger.fields.name;
+          });
+        console.log("ITEMS", response.items);
+        console.log("TAGESGERICHT", gerichtWochentag);
+        setTagesgericht(gerichtWochentag);
+      })
+      .catch(console.error);
+  }, []);
+
   return (
     <div className="contentWrapper">
       <section className="hero header-image is-small">
+        <div className="level has-background-success-dark py-3 px-3">
+          <p className="level-item has-text-centered is-size-6 has-text-white">
+            Tagesgericht&nbsp;
+            <strong className="text has-text-white">
+              {getDate}: {tagesgericht}{" "}
+            </strong>
+          </p>
+          <p className="level-item has-text-centered is-size-6 has-text-white">
+            <strong className="text has-text-white">
+              &nbsp;**** Achtung heute Gibts Helles vom Fass! ****
+            </strong>
+          </p>
+        </div>
         <div className="hero-head mb-0">
           <Navigation />
         </div>
@@ -32,7 +80,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="section" className="pb-0">
+      <section className="section pb-0">
         <div className="container">
           <Switch>
             <Route path="/" exact component={Home} />
@@ -40,6 +88,8 @@ function App() {
             <Route path="/speisekarte" exact component={Speisekarte} />
             <Route path="/getraenke" exact component={Getraenke} />
             <Route path="/kontakt" exact component={Kontakt} />
+            <Route path="/gutschein" exact component={Gutschein} />
+
             <Route path="/impressum" exact component={Impressum} />
           </Switch>
         </div>
