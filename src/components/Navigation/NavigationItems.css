@@ -1,0 +1,34 @@
+.navbar-item {
+  font-weight: 800;
+  cursor: pointer;
+}
+.navbar-item.activeLink {
+  font-weight: 800;
+  background-image: url("../../images/menu_hover_bg.png");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  outline-width: 0px;
+  background-color: none;
+  color: green;
+  cursor: pointer;
+}
+
+a.navbar-item.activeLink:focus,
+a.navbar-item.activeLink:focus-within,
+a.navbar-item.activeLink:hover,
+a.navbar-item.activeLink.is-active {
+  background-color: transparent;
+  outline-width: 0px !important;
+  outline: none !important;
+  color: green !important;
+}
+
+@media screen and (max-width: 1023px) {
+  .navbar-item.activeLink {
+    background-image: url("../../images/burger_active.png");
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: center;
+    padding-left: 15px;
+  }
+}

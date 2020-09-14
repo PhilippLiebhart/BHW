@@ -13,7 +13,7 @@ import Navigation from "./components/Navigation/Navigation";
 import Home from "./components/Home";
 import Lokal from "./components/Lokal";
 import Speisekarte from "./components/Speisekarte/Speisekarte";
-import Getraenke from "./components/Getraenke";
+import Getraenkekarte from "./components/Getraenkekarte/Getraenkekarte";
 import Kontakt from "./components/Kontakt/Kontakt";
 import Gutschein from "./components/Gutschein/Gutschein";
 import Impressum from "./components/Impressum";
@@ -80,13 +80,13 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="section pb-0">
+      <section className="section pb-0 pt-0 mt-0">
         <div className="container">
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/lokal" exact component={Lokal} />
             <Route path="/speisekarte" exact component={Speisekarte} />
-            <Route path="/getraenke" exact component={Getraenke} />
+            <Route path="/getraenke" exact component={Getraenkekarte} />
             <Route path="/kontakt" exact component={Kontakt} />
             <Route path="/gutschein" exact component={Gutschein} />
 

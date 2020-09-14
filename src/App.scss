@@ -37,10 +37,14 @@ $input-border-color: transparent;
 $input-shadow: none;
 
 // NAVIGATION
-$navbar-item-color: $gray;
-$navbar-background-color: $beige-light;
+$navbar-item-color: #656565;
+$navbar-item-active: #1b874f;
+$navbar-item-hover-color: #656565;
+// $navbar-background-color: $beige-light;
 $navbar-height: 4rem;
 $navbar-item-img-max-height: 4rem;
+
+$navbar-item-active-hover-background: #1b874f;
 
 // Import only what you need from Bulma
 // @import '../node_modules/bulma/sass/utilities/_all.sass';

@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+import "./NavigationItems.css";
+
 const NavigationItems = (props) => {
   return (
     <React.Fragment>
@@ -11,7 +13,7 @@ const NavigationItems = (props) => {
         to="/"
         onClick={props.clicked}
       >
-        <h1 className="title is-6">Home</h1>
+        Home
       </NavLink>
       <NavLink
         exact
@@ -20,7 +22,7 @@ const NavigationItems = (props) => {
         to="/lokal"
         onClick={props.clicked}
       >
-        <h1 className="title is-6">Unser Lokal</h1>
+        Unser Lokal
       </NavLink>
       <NavLink
         exact
@@ -29,7 +31,7 @@ const NavigationItems = (props) => {
         to="/speisekarte"
         onClick={props.clicked}
       >
-        <h1 className="title is-6">Speisekarte</h1>
+        Speisekarte
       </NavLink>
       <NavLink
         exact
@@ -38,7 +40,7 @@ const NavigationItems = (props) => {
         to="/getraenke"
         onClick={props.clicked}
       >
-        <h1 className="title is-6">Getränkekarte</h1>
+        Getränkekarte
       </NavLink>
       <NavLink
         exact
@@ -47,7 +49,7 @@ const NavigationItems = (props) => {
         to="/kontakt"
         onClick={props.clicked}
       >
-        <h1 className="title is-6">Kontakt</h1>
+        Kontakt
       </NavLink>
       <NavLink
         exact
@@ -56,7 +58,7 @@ const NavigationItems = (props) => {
         to="/gutschein"
         onClick={props.clicked}
       >
-        <h1 className="title is-6">Gutschein</h1>
+        Gutschein
       </NavLink>
       <NavLink
         exact
