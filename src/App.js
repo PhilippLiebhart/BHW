@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Moment from "react-moment";
+import moment from "moment";
+
 import "moment/locale/de";
 
 import { client } from "../src/client";
@@ -22,16 +24,16 @@ import ornamentRow from "../src/images/Ornament_row.png";
 import ornamentBottom from "../src/images/Ornament_row_bottom.png";
 
 function App() {
-  const date = new Date();
+  console.log("[ ** APP.js COMPONENT RENDERS ** ]");
 
+  const todaysDate = new Date();
   const getDate = (
     <Moment format="dddd" lang="de" locale="de">
-      {date}
+      {todaysDate}
     </Moment>
   );
-  console.log("GET DATE:", getDate);
-  // console.log("AKTUELLES DATE", Moment.date());
 
+  const weekDayName = moment(todaysDate).format("dddd");
   const [tagesgericht, setTagesgericht] = useState([]);
 
   useEffect(() => {
@@ -40,16 +42,16 @@ function App() {
       .then((response) => {
         const res = response.items;
         const gerichtWochentag = res
-          .filter((type) => type.fields.wochentag === "Mittwoch")
+          .filter((type) => type.fields.wochentag === weekDayName)
           .map((ger) => {
             return ger.fields.name;
           });
-        console.log("ITEMS", response.items);
-        console.log("TAGESGERICHT", gerichtWochentag);
+
         setTagesgericht(gerichtWochentag);
+        console.log("[ ** APP.js USE EFFECT RUNS ** ]");
       })
       .catch(console.error);
-  }, []);
+  }, [weekDayName]);
 
   return (
     <div className="contentWrapper">
@@ -59,11 +61,6 @@ function App() {
             Tagesgericht&nbsp;
             <strong className="text has-text-white">
               {getDate}: {tagesgericht}{" "}
-            </strong>
-          </p>
-          <p className="level-item has-text-centered is-size-6 has-text-white">
-            <strong className="text has-text-white">
-              &nbsp;**** Achtung heute Gibts Helles vom Fass! ****
             </strong>
           </p>
         </div>
