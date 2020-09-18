@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Moment from "react-moment";
@@ -19,22 +19,17 @@ import Getraenkekarte from "./components/Getraenkekarte/Getraenkekarte";
 import Kontakt from "./components/Kontakt/Kontakt";
 import Gutschein from "./components/Gutschein/Gutschein";
 import Impressum from "./components/Impressum";
-
 import ornamentRow from "../src/images/Ornament_row.png";
 import ornamentBottom from "../src/images/Ornament_row_bottom.png";
 
+import { useRecoilState } from "recoil";
+
+import { tagesgericht as tagesgerichtAtom } from "./globalRecoilState";
+
 function App() {
+  const [tagesgericht, setTagesgericht] = useRecoilState(tagesgerichtAtom);
+
   console.log("[ ** APP.js COMPONENT RENDERS ** ]");
-
-  const todaysDate = new Date();
-  const getDate = (
-    <Moment format="dddd" lang="de" locale="de">
-      {todaysDate}
-    </Moment>
-  );
-
-  const weekDayName = moment(todaysDate).format("dddd");
-  const [tagesgericht, setTagesgericht] = useState([]);
 
   useEffect(() => {
     client
@@ -51,19 +46,32 @@ function App() {
         console.log("[ ** APP.js USE EFFECT RUNS ** ]");
       })
       .catch(console.error);
-  }, [weekDayName]);
+  }, []);
+
+  const todaysDate = new Date();
+  const getDate = (
+    <Moment format="dddd" lang="de" locale="de">
+      {todaysDate}
+    </Moment>
+  );
+
+  const weekDayName = moment(todaysDate).format("dddd");
 
   return (
     <div className="contentWrapper">
-      <section className="hero header-image is-small">
-        <div className="level has-background-success-dark py-3 px-3">
-          <p className="level-item has-text-centered is-size-6 has-text-white">
-            Tagesgericht&nbsp;
-            <strong className="text has-text-white">
-              {getDate}: {tagesgericht}{" "}
-            </strong>
-          </p>
+      <section className="section py-0 px-0">
+        <div className="navigation">
+          <div className="level has-background-success-dark py-3 px-3">
+            <p className="level-item has-text-centered is-size-6 has-text-white">
+              Tagesgericht&nbsp;
+              <strong className="text has-text-white">
+                {getDate}: {tagesgericht}{" "}
+              </strong>
+            </p>
+          </div>
         </div>
+      </section>
+      <section className="hero header-image is-small">
         <div className="hero-head mb-0">
           <Navigation />
         </div>
