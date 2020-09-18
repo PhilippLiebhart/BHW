@@ -32,3 +32,7 @@ a.navbar-item.activeLink.is-active {
     padding-left: 15px;
   }
 }
+.bm-menu-wrap {
+  top: 0;
+  right: 0;
+}

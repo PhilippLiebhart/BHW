@@ -65,7 +65,7 @@ function App() {
             <p className="level-item has-text-centered is-size-6 has-text-white">
               Tagesgericht&nbsp;
               <strong className="text has-text-white">
-                {getDate}: {tagesgericht}{" "}
+                {getDate}: {tagesgericht}
               </strong>
             </p>
           </div>
@@ -94,7 +94,6 @@ function App() {
             <Route path="/getraenke" exact component={Getraenkekarte} />
             <Route path="/kontakt" exact component={Kontakt} />
             <Route path="/gutschein" exact component={Gutschein} />
-
             <Route path="/impressum" exact component={Impressum} />
           </Switch>
         </div>

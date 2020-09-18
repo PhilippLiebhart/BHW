@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { client } from "../../client";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Speise from "./Speise/Speise";
+import SpeisekarteSection from "./SpeisekarteSection";
 
 const Speisekarte = (props) => {
   const [speisen, setSpeisen] = useState([]);
@@ -16,37 +17,45 @@ const Speisekarte = (props) => {
       .catch(console.error);
   }, []);
 
-  const wochenkarte = speisen
-    .filter((type) => type.sys.contentType.sys.id === "tagesgericht")
-    .map((speise, index) => {
-      const richText = speise.fields.beschreibung;
-      const richedText = documentToReactComponents(richText);
-      return (
-        <Speise
-          key={speise.sys.id}
-          name={speise.fields.name}
-          beschreibung={richedText}
-          preis={speise.fields.preis}
-          imgURL={speise.fields.foto.fields.file.url}
-        />
-      );
-    });
+  const getSection = (name) => {
+    const filterByName = name;
+    const sectionItem = speisen
+      .filter((type) => type.sys.contentType.sys.id === filterByName)
+      .map((speise, index) => {
+        const richText = speise.fields.beschreibung;
+        const richedText = documentToReactComponents(richText);
 
-  const speisekarte = speisen
-    .filter((type) => type.sys.contentType.sys.id === "speisen")
-    .map((speise, index) => {
-      const richText = speise.fields.beschreibung;
-      const richedText = documentToReactComponents(richText);
-      return (
-        <Speise
-          key={speise.sys.id}
-          name={speise.fields.name}
-          beschreibung={richedText}
-          preis={speise.fields.preis}
-          imgURL={speise.fields.foto.fields.file.url}
-        />
-      );
-    });
+        // check if img url is empty
+        let imageUrl = "";
+        if (imageUrl === undefined) {
+          imageUrl = "";
+        } else {
+          imageUrl = speise.fields.foto.fields.file.url;
+        }
+        ///
+        console.log(imageUrl);
+        return (
+          <Speise
+            key={speise.sys.id}
+            name={speise.fields.name}
+            beschreibung={richedText}
+            preis={speise.fields.preis}
+            imgURL={imageUrl}
+          />
+        );
+      });
+    return sectionItem;
+  };
+
+  const wochenkarte = getSection("tagesgericht");
+  const bayrisch = getSection("mnchnerOriginaleBayrischeKlassiker");
+  const nuernberger = getSection("originalNrnbergerRostbratwrstchen");
+  const fraenkisch = getSection("frnkischeSchmankerl");
+  const brotzeiten = getSection("brotzeiten");
+  const suppen = getSection("suppen");
+  const salate = getSection("salate");
+  const beilagen = getSection("beilagen");
+  const dessert = getSection("dessert");
 
   return (
     <div className="section">
@@ -60,14 +69,23 @@ const Speisekarte = (props) => {
         <p className="is-size-4">Unsere Tagesgerichte für € 7,80</p>
       </div>
       {wochenkarte}
-      <div className="container has-background-success-dark has-text-white px-3 py-3">
-        <p className="is-size-4">Münchner Originale & Bayrische Klassiker</p>
-      </div>
-      {speisekarte}
-      <div className="container has-background-success-dark has-text-white px-3 py-3">
-        <p className="is-size-4">Original Nürnberger Rostbratwürstchen</p>
-      </div>
-      {speisekarte}
+      <SpeisekarteSection
+        sectionName="Münchner Originale & Bayrische Klassiker"
+        sectionItems={bayrisch}
+      />
+      <SpeisekarteSection
+        sectionName="Original Nürnberger Rostbratwürstchen"
+        sectionItems={nuernberger}
+      />
+      <SpeisekarteSection
+        sectionName="Fränkische Schmankerl"
+        sectionItems={fraenkisch}
+      />
+      <SpeisekarteSection sectionName="Brotzeiten" sectionItems={brotzeiten} />
+      <SpeisekarteSection sectionName="Suppen" sectionItems={suppen} />
+      <SpeisekarteSection sectionName="Salate" sectionItems={salate} />
+      <SpeisekarteSection sectionName="Beilagen" sectionItems={beilagen} />
+      <SpeisekarteSection sectionName="Dessert" sectionItems={dessert} />
     </div>
   );
 };

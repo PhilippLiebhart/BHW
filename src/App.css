@@ -88,3 +88,40 @@ Note: Beware of modifying this element as it can break the animations - you shou
   background: rgba(0, 0, 0, 0.1);
   left: 0;
 }
+
+@media screen and (max-width: 1023px) {
+  .section {
+    padding: 0.5rem;
+  }
+  .mt-3 {
+    position: absolute;
+    left: 1.5rem;
+    top: 0;
+    margin-top: 1.5rem !important;
+    padding: 0 0.5rem 0 0.5rem;
+    font-size: 1.5rem !important;
+
+    color: gray;
+    background-color: white;
+    opacity: 0.7;
+  }
+
+  .bm-burger-button {
+    top: 110px;
+    right: 20px;
+  }
+  .is-size-4 {
+    font-size: 1rem !important;
+    font-weight: bold;
+  }
+  .title.is-4 {
+    font-size: 1rem;
+  }
+  .column {
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 0.5rem;
+  }
+}
