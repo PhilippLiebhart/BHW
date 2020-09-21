@@ -29,12 +29,21 @@ import { tagesgericht as tagesgerichtAtom } from "./globalRecoilState";
 function App() {
   const [tagesgericht, setTagesgericht] = useRecoilState(tagesgerichtAtom);
 
+  const todaysDate = new Date();
+  const weekDayName = moment(todaysDate).format("dddd");
+  const getDate = (
+    <Moment format="dddd" lang="de" locale="de">
+      {todaysDate}
+    </Moment>
+  );
+
   console.log("[ ** APP.js COMPONENT RENDERS ** ]");
 
   useEffect(() => {
     client
       .getEntries()
       .then((response) => {
+        console.log("[[ CONTENTFUL RESPONSE APP.JS ]]", response);
         const res = response.items;
         const gerichtWochentag = res
           .filter((type) => type.fields.wochentag === weekDayName)
@@ -48,25 +57,16 @@ function App() {
       .catch(console.error);
   }, []);
 
-  const todaysDate = new Date();
-  const getDate = (
-    <Moment format="dddd" lang="de" locale="de">
-      {todaysDate}
-    </Moment>
-  );
-
-  const weekDayName = moment(todaysDate).format("dddd");
-
   return (
     <div className="contentWrapper">
       <section className="section py-0 px-0">
         <div className="navigation">
           <div className="level has-background-success-dark py-3 px-3">
             <p className="level-item has-text-centered is-size-6 has-text-white">
-              Tagesgericht&nbsp;
               <strong className="text has-text-white">
-                {getDate}: {tagesgericht}
+                Tagesgericht {getDate}:{" "}
               </strong>
+              &nbsp;{tagesgericht}
             </p>
           </div>
         </div>
@@ -78,7 +78,7 @@ function App() {
       </section>
       <section className="section pb-0 pt-0">
         <div className="container">
-          <div className="column pl-6 pr-6 pb-0 pt-0 mb-0 mt-0">
+          <div className="column pl-6 pr-6 pb-5 pt-0 mb-0 mt-0">
             <figure className="image is-900by76">
               <img src={ornamentRow} alt="Bratwurscht Ornament" />
             </figure>

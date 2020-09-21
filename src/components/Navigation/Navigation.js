@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Navigation.css";
 
 import { slide as Menu } from "react-burger-menu";
-import logo from "../../images/BHW_Logo_schrift.png";
+import logo from "../../images/BWH_Logo_Schrift.svg";
 import NavigationItems from "./NavigationItems";
 
 const Navigation = (props) => {
@@ -21,7 +21,7 @@ const Navigation = (props) => {
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <div className="burgerNavBar">
-            <figure className="image">
+            <figure className="image pr-5 ml-4">
               <img src={logo} alt="Bratwurscht Herzl Logo" />
             </figure>
             <Menu
@@ -37,7 +37,11 @@ const Navigation = (props) => {
         <div id="navbarBasicExample" className="navbar-menu">
           <figure className="image pr-5 ml-4">
             {" "}
-            <img src={logo} alt="Bratwurscht Herzl Logo" />
+            <img
+              src={logo}
+              alt="Bratwurscht Herzl Logo"
+              style={{ width: "auto", height: "118px" }}
+            />
           </figure>
 
           <div className="navbar-start">

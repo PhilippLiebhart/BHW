@@ -7,8 +7,6 @@ import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 
-require("dortenv").config();
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter basename={"/"}>

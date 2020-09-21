@@ -12,6 +12,8 @@ const Speisekarte = (props) => {
     client
       .getEntries()
       .then((response) => {
+        console.log("[[ CONTENTFUL RESPONSE SPEISEKARTE.JS ]]", response);
+
         setSpeisen(response.items);
       })
       .catch(console.error);
