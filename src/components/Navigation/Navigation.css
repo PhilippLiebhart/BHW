@@ -1,24 +1,6 @@
-.navbar-item.activeLink {
-  color: #00a572 !important;
-  font-weight: 800;
-
-  background-image: url("../../images/menu_hover_bg.png");
-  background-repeat: no-repeat;
-  background-position-x: center;
-}
-
 @media screen and (min-width: 1024px) {
   .burgerNavBar {
     display: none;
-  }
-}
-@media screen and (max-width: 1023px) {
-  .navbar-item.activeLink {
-    background-image: url("../../images/burger_active.png");
-    background-repeat: no-repeat;
-    background-position-x: left;
-    background-position-y: center;
-    padding-left: 15px;
   }
 }
 
@@ -26,9 +8,8 @@
   justify-content: center;
 }
 
+/* 
 .bm-menu-wrap {
-  background-color: #ffffed;
   background-color: none;
   background-image: url("https://www.transparenttextures.com/patterns/subtle-grunge.png");
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-}
+} */

@@ -25,10 +25,7 @@ const Kontakt = (props) => {
             <div className="columns is-multiline is-vcentered is-mobile is-desktop is-tablet">
               <div className="column is-full-mobile is-half-desktop is-half-tablet is-half-widescreen is-half-fullhd">
                 <p className="title is-5">Unsere Öffnungszeiten: </p>
-                <p className="title">
-                  Momentan: <span className="tag is-success">OPEN</span>
-                  <span className="tag is-danger">CLOSED</span>
-                </p>
+
                 <p className="title is-4  mb-2 pb-0">
                   Montag bis Samstag: 10.00 bis 23.00 Uhr.
                 </p>

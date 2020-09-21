@@ -20,6 +20,17 @@
   background-size: 15%;
 } */
 
+a.navbar-item:focus,
+a.navbar-item:focus-within,
+a.navbar-item:hover,
+a.navbar-item.is-active,
+.navbar-link:focus,
+.navbar-link:focus-within,
+.navbar-link:hover,
+.navbar-link.is-active {
+  background-color: transparent;
+}
+
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
@@ -31,7 +42,7 @@
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #1c854e;
+  background: #494949;
 }
 
 /* Color/shape of burger icon bars on hover*/
@@ -87,4 +98,41 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .bm-overlay {
   background: rgba(0, 0, 0, 0.1);
   left: 0;
+}
+
+@media screen and (max-width: 1023px) {
+  .section {
+    padding: 0.5rem;
+  }
+  .mt-3 {
+    position: absolute;
+    left: 1.5rem;
+    top: 0;
+    margin-top: 1.5rem !important;
+    padding: 0 0.5rem 0 0.5rem;
+    font-size: 1.5rem !important;
+
+    color: gray;
+    background-color: white;
+    opacity: 0.7;
+  }
+
+  .bm-burger-button {
+    top: 110px;
+    right: 20px;
+  }
+  .is-size-4 {
+    font-size: 1rem !important;
+    font-weight: bold;
+  }
+  .title.is-4 {
+    font-size: 1rem;
+  }
+  .column {
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 0.5rem;
+  }
 }
