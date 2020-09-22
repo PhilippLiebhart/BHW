@@ -21,10 +21,9 @@ const Drink = (props) => {
                     backgroundColor: "white",
                     padding: "5px",
                     color: "black",
-                    margin: "10px",
                   }}
                 >
-                  0,3 L{" "}
+                  ??? ml{" "}
                   <span
                     style={{
                       backgroundColor: "green",
@@ -44,7 +43,6 @@ const Drink = (props) => {
                     backgroundColor: "white",
                     padding: "5px",
                     color: "black",
-                    margin: "10px",
                   }}
                 >
                   0,3 L{" "}

@@ -28,14 +28,13 @@ const Speisekarte = (props) => {
         const richedText = documentToReactComponents(richText);
 
         // check if img url is empty
-        let imageUrl = "";
-        if (imageUrl === undefined) {
-          imageUrl = "";
-        } else {
+        let imageUrl = speise.fields.foto;
+        if (imageUrl !== undefined) {
           imageUrl = speise.fields.foto.fields.file.url;
+        } else {
+          imageUrl = "";
         }
         ///
-        console.log(imageUrl);
         return (
           <Speise
             key={speise.sys.id}

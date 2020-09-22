@@ -1,7 +1,7 @@
 import React from "react";
 
 const Gutschein = (props) => {
-  return <div>Gutschein</div>;
+  return <div>Gutschein Bestellung?</div>;
 };
 
 export default Gutschein;
