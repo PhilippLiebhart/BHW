@@ -1,11 +1,8 @@
 import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-
 import Moment from "react-moment";
 import moment from "moment";
-
 import "moment/locale/de";
-
 import { client } from "../src/client";
 
 import "./App.scss";
@@ -19,8 +16,8 @@ import Getraenkekarte from "./components/Getraenkekarte/Getraenkekarte";
 import Kontakt from "./components/Kontakt/Kontakt";
 import Gutschein from "./components/Gutschein/Gutschein";
 import Impressum from "./components/Impressum";
-import ornamentRow from "../src/images/Ornament_row.png";
-import ornamentBottom from "../src/images/Ornament_row_bottom.png";
+import ornamentRow from "../src/images/Ornament_top.svg";
+import ornamentBottom from "../src/images/Ornament.svg";
 
 import { useRecoilState } from "recoil";
 

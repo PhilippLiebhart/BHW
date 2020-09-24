@@ -23,10 +23,17 @@ const Speisekarte = (props) => {
     const filterByName = name;
     const sectionItem = speisen
       .filter((type) => type.sys.contentType.sys.id === filterByName)
+      .sort((a, b) => (a.fields.nummer > b.fields.nummer ? 1 : -1))
       .map((speise, index) => {
         const richText = speise.fields.beschreibung;
         const richedText = documentToReactComponents(richText);
-
+        // day tageskarte
+        let foodDay = speise.fields.wochentag;
+        if (foodDay !== undefined) {
+          foodDay = speise.fields.wochentag;
+        } else {
+          foodDay = "";
+        }
         // check if img url is empty
         let imageUrl = speise.fields.foto;
         if (imageUrl !== undefined) {
@@ -42,6 +49,7 @@ const Speisekarte = (props) => {
             beschreibung={richedText}
             preis={speise.fields.preis}
             imgURL={imageUrl}
+            foodDay={foodDay}
           />
         );
       });

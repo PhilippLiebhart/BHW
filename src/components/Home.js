@@ -1,6 +1,6 @@
 import React from "react";
 
-import logo from "../images/BHW_Logo_big.png";
+import logo from "../images/BHW_logo_clean.svg";
 
 const Home = (props) => {
   return (

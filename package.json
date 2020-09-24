@@ -2,7 +2,7 @@
   "name": "bhw",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://coderpippo.github.io/BHW/",
+  "homepage": "/",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.1",
     "@testing-library/jest-dom": "^4.2.4",

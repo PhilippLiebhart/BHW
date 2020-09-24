@@ -37,7 +37,7 @@ a.navbar-item.is-active,
   width: 36px;
   height: 30px;
   right: 36px;
-  top: 25px;
+  /* top: 25px; */
 }
 
 /* Color/shape of burger icon bars */
@@ -118,7 +118,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
 
   .bm-burger-button {
-    top: 110px;
+    top: 105px;
     right: 20px;
   }
   .is-size-4 {
